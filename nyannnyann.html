@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>にゃんにゃん | 板橋のペットショップ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oat: #F1E9DC;
+    --cream: #FCF9F2;
+    --forest: #3F5F45;
+    --forest-deep: #2B4530;
+    --amber: #D98C34;
+    --coral: #C2604A;
+    --ink: #2B2A25;
+    --ink-soft: #5C5A4E;
+    --line: rgba(43,42,37,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--oat);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.65;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    color:var(--forest-deep);
+  }
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(241,233,220,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;max-width:1040px;margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:26px;font-weight:700;
+    color:var(--forest-deep);
+    letter-spacing:0.01em;
+  }
+  nav.links{display:flex;gap:26px;font-size:15px;}
+  nav.links a{text-decoration:none;color:var(--ink-soft);}
+  nav.links a:hover{color:var(--forest);}
+  .nav-cta{
+    background:var(--coral);color:var(--cream);
+    padding:9px 20px;border-radius:100px;font-size:14px;
+    text-decoration:none;font-weight:600;
+  }
+
+  /* Hero */
+  .hero{padding:64px 0 56px;}
+  .hero-top{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:16px 28px;
+  }
+  .hero-top .shopname{
+    font-size:clamp(48px, 9vw, 84px);
+    line-height:1;
+    color:var(--forest-deep);
+  }
+  .hero-top .place{
+    font-size:clamp(26px, 4vw, 38px);
+    color:var(--coral);
+    font-weight:600;
+    font-family:'Fraunces', serif;
+  }
+  .hero p.lead{
+    margin-top:22px;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+  .hero-meta{
+    margin-top:26px;
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .meta-item{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 22px;
+  }
+  .meta-item .label{font-size:13px;color:var(--ink-soft);}
+  .meta-item .value{font-size:19px;font-weight:600;color:var(--forest-deep);font-family:'Fraunces',serif;}
+  .hero-actions{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--coral);color:var(--cream);
+    padding:14px 26px;border-radius:100px;text-decoration:none;
+    font-weight:600;font-size:15px;display:inline-block;
+    box-shadow:0 6px 18px rgba(194,96,74,0.28);
+  }
+  .btn-ghost{
+    border:1.5px solid var(--forest);color:var(--forest-deep);
+    padding:12.5px 26px;border-radius:100px;text-decoration:none;
+    font-weight:500;font-size:15px;display:inline-block;
+  }
+
+  /* Section */
+  .section{padding:64px 0;border-top:1px solid var(--line);}
+  .section-head{max-width:60ch;margin-bottom:36px;}
+  .section-head h2{font-size:clamp(26px, 3.4vw, 34px);}
+  .section-head p{margin-top:10px;color:var(--ink-soft);font-size:16.5px;}
+
+  /* Recommend pets */
+  .recommend-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .pet-card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+  }
+  .pet-card .photo{
+    aspect-ratio:4/3;
+    overflow:hidden;
+  }
+  .pet-card .photo img{width:100%;height:100%;object-fit:cover;}
+  .pet-card .body{padding:22px 24px 26px;}
+  .pet-card .tag{
+    display:inline-block;
+    font-size:13px;
+    color:var(--forest);
+    border:1px solid var(--forest);
+    border-radius:100px;
+    padding:3px 12px;
+    margin-bottom:12px;
+  }
+  .pet-card h3{font-size:21px;margin-bottom:8px;}
+  .pet-card p{color:var(--ink-soft);font-size:15px;}
+
+  /* info */
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .info-block h3{
+    font-size:15px;color:var(--forest);margin-bottom:14px;
+    font-family:'Work Sans',sans-serif;font-weight:600;
+  }
+  table.hours{width:100%;border-collapse:collapse;font-size:15px;}
+  table.hours td{padding:9px 0;border-top:1px solid var(--line);color:var(--ink-soft);}
+  table.hours td:last-child{text-align:right;color:var(--ink);font-weight:500;}
+  .map-box{
+    background:var(--cream);border:1px solid var(--line);
+    border-radius:16px;padding:24px;
+  }
+  .map-box p{margin:4px 0;color:var(--ink-soft);font-size:15px;}
+  .map-box strong{color:var(--ink);}
+
+  /* CTA */
+  .cta-band{
+    background:var(--forest-deep);border-radius:24px;
+    padding:52px 44px;color:var(--cream);
+    display:flex;justify-content:space-between;align-items:center;
+    gap:28px;flex-wrap:wrap;
+  }
+  .cta-band h2{color:var(--cream);font-size:clamp(24px,3vw,32px);max-width:20ch;}
+  .cta-band .btn-primary{box-shadow:none;}
+
+  footer{
+    padding:32px 0 44px;border-top:1px solid var(--line);
+    font-size:13.5px;color:var(--ink-soft);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  @media (max-width:760px){
+    nav.links, .nav-cta{display:none;}
+    .recommend-grid{grid-template-columns:1fr;}
+    .info-grid{grid-template-columns:1fr;}
+    .cta-band{flex-direction:column;text-align:center;justify-content:center;}
+  }
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+  :focus-visible{outline:2.5px solid var(--amber);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">にゃんにゃん</div>
+    <nav class="links">
+      <a href="#recommend">おすすめのペット</a>
+      <a href="#info">店舗情報</a>
+    </nav>
+    <a href="#contact" class="nav-cta">お問い合わせ</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="shopname">にゃんにゃん</span>
+      <span class="place">板橋店</span>
+    </div>
+    <p class="lead">板橋にある小さなペットショップです。猫と大型犬(子犬)を中心に、これから家族になる子たちをご紹介しています。</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="label">営業時間</div>
+        <div class="value">10:00 - 18:00</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">場所</div>
+        <div class="value">東京都板橋区</div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">来店の予約をする</a>
+      <a href="#recommend" class="btn-ghost">おすすめの子を見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="recommend">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>おすすめのペット</h2>
+      <p>特に力を入れているのが、猫と大型犬です。大型犬は子犬のうちからお迎えいただき、ご家庭でゆっくり育てていただけます。</p>
+    </div>
+    <div class="recommend-grid">
+      <div class="pet-card">
+        <div class="photo">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A-Cat.jpg" alt="お店でお迎えできる猫">
+        </div>
+        <div class="body">
+          <span class="tag">猫</span>
+          <h3>甘えん坊な子が多めです</h3>
+          <p>短毛・長毛どちらも在籍。性格や運動量までお伝えしたうえでご紹介しています。</p>
+        </div>
+      </div>
+      <div class="pet-card">
+        <div class="photo">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Golden Retriever Puppy.JPG" alt="お店でお迎えできる大型犬の子犬">
+        </div>
+        <div class="body">
+          <span class="tag">大型犬(子犬)</span>
+          <h3>子犬のうちからお迎えできます</h3>
+          <p>成犬になったときの大きさやお世話の仕方も含めて、飼育スペースに合わせてご相談いただけます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="info">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>店舗情報</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>営業時間</h3>
+        <table class="hours">
+          <tr><td>営業時間</td><td>10:00 - 18:00</td></tr>
+          <tr><td>定休日</td><td>お問い合わせください</td></tr>
+        </table>
+      </div>
+      <div class="info-block">
+        <h3>アクセス</h3>
+        <div class="map-box">
+          <p><strong>にゃんにゃん 板橋店</strong></p>
+          <p>東京都板橋区◯◯町1-2-3</p>
+          <p>TEL 00-0000-0000</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>お店の子に会いにきませんか</h2>
+      <a href="tel:0000000000" class="btn-primary">電話で予約する</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:10px;">
+    <span>&copy; にゃんにゃん 板橋店</span>
+    <span>東京都板橋区◯◯町1-2-3 / TEL 00-0000-0000</span>
+  </div>
+</footer>
+
+</body>
+</html>
+i
